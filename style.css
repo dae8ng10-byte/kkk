@@ -1,0 +1,155 @@
+/* --- 기본 설정 --- */
+body { 
+    font-family: sans-serif; 
+    text-align: center; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* 헤더 스타일 */
+header { 
+    padding: 15px; 
+    background-color: #D9EAFD; 
+    color: #333; 
+    border-bottom: 1px solid #c0d9e9;
+}
+
+/* 버튼 기본 스타일 및 중앙 정렬 */
+button { 
+    padding: 12px 25px; 
+    margin: 10px 5px; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    /* display: inline-block; 유지 */
+}
+
+/* 인트로 일러스트 영역 스타일 */
+.halmang-illustration {
+    margin: 20px 0;
+}
+
+/* --- 메인 미션 화면 중앙 정렬 및 바우처 중앙 정렬 --- */
+#main-mission-screen {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* 전체 자식 요소 중앙 정렬 */
+    width: 100%;
+}
+
+#mission-status-list, #reward-section {
+    max-width: 400px;
+    width: 90%;
+    margin: 10px auto; 
+    text-align: center; 
+}
+
+#reward-section img {
+    display: block; 
+    margin: 10px auto; 
+}
+
+/* ⭐ '다음 미수집 미션 시작' 버튼 중앙 정렬 보강 ⭐ */
+#start-next-mission-btn {
+    display: block; /* 블록 요소로 설정 */
+    margin: 20px auto; /* 좌우 마진 자동 적용하여 부모 컨테이너 내에서 중앙 정렬 */
+    width: auto; /* 내용물에 맞게 너비 유지 */
+}
+/* ------------------------------------------------------------------ */
+
+
+/* --- 모달 스타일 --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Step 2 퀴즈 컨테이너 설정 */
+#step-2 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%;
+}
+
+.quiz-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+}
+
+/* 미션 설명/퀴즈 텍스트 스타일 */
+.mission-text {
+    margin: 15px 0 25px 0;
+    padding: 0 10px;
+    line-height: 1.5;
+    font-size: 0.95em;
+    color: #555;
+    text-align: center;
+}
+
+/* 퀴즈 입력 필드 */
+#quiz-answer-input {
+    padding: 10px; 
+    width: 80%; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px 0; 
+}
+
+/* --- 카메라 피드 스타일 (Step 4) --- */
+#camera-preview {
+    width: 100%;
+    height: auto;
+    max-height: 40vh; 
+    background-color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Step 4 버튼 정렬 */
+#step-4 {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    align-items: center;
+}
+
+/* 버튼 색상 예시 */
+#start-quiz-btn, #continue-after-quiz-btn { 
+    background-color: #1e88e5; 
+    color: white;
+}
+#start-auth-btn {
+    background-color: #f4511e; 
+    color: white;
+}
+#take-photo-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+#collect-item-btn {
+    background-color: #4CAF50; 
+    color: white;
+}

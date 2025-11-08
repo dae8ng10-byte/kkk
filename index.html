@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할망런</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="intro-screen">
+        <header><h1>👩‍🦳 할망런 🏃</h1></header>
+        <div class="story-content">
+            <div class="halmang-illustration">
+                <img src="./halmang_intro.png" alt="설문대할망 일러스트" style="max-width: 100%; height: auto;">
+            </div>
+            <p id="dialogue-text">...</p>
+        </div>
+        <button id="next-dialogue-btn">다음 (SKIP)</button>
+    </div>
+
+    <div id="main-mission-screen" style="display: none;">
+        <header><h1>탐험 리스트 📝</h1></header>
+        <div id="mission-status-list">
+        </div>
+        <button id="start-next-mission-btn">미수집 미션 시작</button>
+
+<div id="reward-section" style="display: none;">
+    <img src="./money.png" alt="야시장 바우처" style="max-width: 200px; margin: 10px auto; display: block;">
+    <button id="show-voucher-info-btn">바우처 교환 안내 보기</button>
+</div>
+    </div>
+
+    <div id="mission-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            
+            <div id="step-1" style="display: none;">
+                <h2 id="mission-title-info">미션명</h2>
+                <p id="mission-desc-info" class="mission-text"></p>
+                <button id="start-quiz-btn">미션 퀴즈 시작</button>
+            </div>
+
+          <div id="step-2" style="display: none;">
+    <h3>🧠 할망의 지혜 퀴즈</h3>
+    <p id="quiz-question" class="mission-text"></p>
+    
+    <div class="quiz-control">
+        <input type="text" id="quiz-answer-input" placeholder="답변을 입력하세요">
+        <p id="quiz-feedback" style="color: red;"></p>
+        <button id="continue-after-quiz-btn">다음 단계로</button> 
+    </div>
+</div>
+            <div id="step-3" style="display: none;">
+                <h2 id="mission-location">미션 장소</h2>
+                <img id="mission-item-image" src="" alt="미션 아이템" style="max-width: 80%; height: auto; margin: 10px 0;">
+                <p id="mission-description" class="mission-text"></p>
+                <button id="start-auth-btn">아이템 획득</button>
+            </div>
+
+            <div id="step-4" style="display: none;">
+                <h3>할망런에서의 추억 남기기</h3>
+                <div class="camera-feed-container">
+                    <video id="camera-preview" autoplay></video>
+                    <canvas id="camera-canvas" style="display: none;"></canvas> </div>
+                <button id="take-photo-btn">📸 사진 찍기</button>
+                <button id="collect-item-btn">✅ 미션 완료</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
