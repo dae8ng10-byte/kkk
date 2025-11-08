@@ -18,12 +18,12 @@ const missions = [
         location: '제주돌문화공원', 
         isCollected: false, 
         imagePath: './seed_wish.png',
-        description: "포토스팟 장소에 대한 두 단계의 힌트를 얻은 후, 그 곳에서 사진을 찍어 '수호의 조각'을 획득합니다.",
+        description: "인증 장소에 대한 두 단계의 힌트를 얻은 후, 그 곳에서 기념사진을 촬영하여 '수호의 조각'을 획득하세요.",
         introDescription: "제주돌문화공원에서 '수호의 조각'을 찾기 위해서는 ①돌문화 공원 산책과 ②소원의 돌탑 쌓기를 하며 포토스팟 장소에 대한 힌트를 얻어야 합니다.",
         quiz: "제주돌문화공원 탐험의 첫 번째 단계인 '돌문화 공원 산책'을 완료하셨나요? 미션 힌트: 백록담처럼 보인다.", // M2-1
         answerType: 'hint-1', // M2-1 힌트 획득 플로우 시작
         hint2: "두 번째 단계인 '소원의 돌탑 쌓기'를 완료하세요. 미션 힌트: 돌박물관 옥상에 있다.", // M2-2
-        finalLocation: "하늘연못" // 최종 인증 장소
+        finalLocation: "하늘연못" // 포토 미션 장소
     },
     { 
         id: 'peace', 
@@ -132,6 +132,7 @@ startNextMissionBtn.addEventListener('click', () => {
     missionTitleInfo.textContent = `미션: ${nextMission.name}`;
     missionDescInfo.textContent = nextMission.introDescription; 
     
+startAuthBtn.textContent = "아이템 획득";
     // 모달 열기 및 Step 1 표시
     modal.style.display = 'flex';
     step1.style.display = 'block'; 
@@ -177,7 +178,7 @@ continueAfterQuizBtn.addEventListener('click', () => {
              quizFeedback.style.color = 'red';
              return;
         } 
-        quizFeedback.textContent = '답변이 기록되었습니다! 다음 장소를 확인하세요.';
+        quizFeedback.textContent = '답변이 기록되었습니다! 다음 장소로 이동하세요.';
         quizFeedback.style.color = 'green';
 
         // 1.5초 후 Step 3 (장소/아이템 확인)으로 전환
@@ -202,13 +203,13 @@ continueAfterQuizBtn.addEventListener('click', () => {
         setTimeout(() => {
             // Step 2 팝업 내부 내용만 M2-2 힌트로 변경 (Step 3로 넘어가지 않음)
             quizQuestion.textContent = currentMission.hint2;
-            continueAfterQuizBtn.textContent = "힌트 획득 완료 (최종 장소 확인)";
+            continueAfterQuizBtn.textContent = "힌트 획득 완료 (미션 장소 확인)";
             quizFeedback.textContent = '';
         }, 1500);
 
     } else if (currentMission.answerType === 'hint-2') {
         
-        // M2-2 완료 -> Step 3 (최종 인증 장소)로 전환
+        // M2-2 완료 -> Step 3 (포토 미션 장소)로 전환
         quizFeedback.textContent = `🎉 두 번째 힌트 획득 완료! 이제 ${currentMission.finalLocation}으로 가세요.`;
         quizFeedback.style.color = 'green';
         
@@ -216,11 +217,11 @@ continueAfterQuizBtn.addEventListener('click', () => {
             step2.style.display = 'none';
             step3.style.display = 'block';
             
-            // Step 3 내용 업데이트 (최종 인증 장소로 변경)
-            missionLocationText.textContent = `${currentMission.finalLocation} (최종 인증 장소)`;
+            // Step 3 내용 업데이트 (포토 미션 장소로 변경)
+            missionLocationText.textContent = `${currentMission.finalLocation} (포토 미션 장소)`;
             missionItemImage.src = currentMission.imagePath; 
-            missionDescriptionText.textContent = `이제 ${currentMission.finalLocation}에 도착하여 사진을 찍고 수집 완료 버튼을 누르세요.`; 
-            startAuthBtn.textContent = "최종 인증 시작 (카메라)"; // 버튼 텍스트 변경
+            missionDescriptionText.textContent = `이제 ${currentMission.finalLocation}에 도착하여 사진을 찍고 미션 완료 버튼을 누르세요.`; 
+            startAuthBtn.textContent = "포토 미션 시작"; // 버튼 텍스트 변경
         }, 2000);
     }
 });
